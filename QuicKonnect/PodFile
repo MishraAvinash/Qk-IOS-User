@@ -1,0 +1,7 @@
+target 'QuicKonnect'
+
+pod 'AFNetworking', '~> 3.0'
+pod 'google-plus-ios-sdk', '1.7.1'
+pod 'Facebook-iOS-SDK'
+
+pod 'Mantle'

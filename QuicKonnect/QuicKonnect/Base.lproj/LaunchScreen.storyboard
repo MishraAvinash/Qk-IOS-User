@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Llm-lL-Icb"/>
+                        <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="welcomebg.png" translatesAutoresizingMaskIntoConstraints="NO" id="45W-MK-hkK">
+                                <rect key="frame" x="0.0" y="0.0" width="337" height="590"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="quicktext.png" translatesAutoresizingMaskIntoConstraints="NO" id="PeH-T3-lCb">
+                                <rect key="frame" x="57" y="332" width="240" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="3HO-ZF-k3r"/>
+                                    <constraint firstAttribute="width" constant="240" id="baL-Ae-6Nf"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="3HO-ZF-k3r"/>
+                                        <exclude reference="baL-Ae-6Nf"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="3HO-ZF-k3r"/>
+                                        <include reference="baL-Ae-6Nf"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_qk_logo" translatesAutoresizingMaskIntoConstraints="NO" id="Dzn-E2-Hps">
+                                <rect key="frame" x="132" y="266" width="64" height="58"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="64" id="DPU-Wq-O5G"/>
+                                    <constraint firstAttribute="height" constant="58" id="sou-Mv-BN1"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="DPU-Wq-O5G"/>
+                                        <exclude reference="sou-Mv-BN1"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="DPU-Wq-O5G"/>
+                                        <include reference="sou-Mv-BN1"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="45W-MK-hkK" secondAttribute="trailing" id="9cl-cw-d3A"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="45W-MK-hkK" secondAttribute="bottom" id="Hu8-RK-GaL"/>
+                            <constraint firstItem="45W-MK-hkK" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="NIH-5m-6Vi"/>
+                            <constraint firstItem="PeH-T3-lCb" firstAttribute="top" secondItem="Dzn-E2-Hps" secondAttribute="bottom" constant="19" id="UbE-Na-Q2H"/>
+                            <constraint firstItem="45W-MK-hkK" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="ZXi-CU-XPM"/>
+                            <constraint firstItem="PeH-T3-lCb" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="boz-Lf-pgH"/>
+                            <constraint firstItem="PeH-T3-lCb" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="pNH-mh-oZl"/>
+                            <constraint firstItem="Dzn-E2-Hps" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="z33-0w-AhE"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="45W-MK-hkK"/>
+                                <exclude reference="PeH-T3-lCb"/>
+                                <exclude reference="Dzn-E2-Hps"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="Hu8-RK-GaL"/>
+                                <exclude reference="z33-0w-AhE"/>
+                                <exclude reference="UbE-Na-Q2H"/>
+                                <exclude reference="boz-Lf-pgH"/>
+                                <exclude reference="pNH-mh-oZl"/>
+                                <exclude reference="9cl-cw-d3A"/>
+                                <exclude reference="NIH-5m-6Vi"/>
+                                <exclude reference="ZXi-CU-XPM"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="45W-MK-hkK"/>
+                                <include reference="PeH-T3-lCb"/>
+                                <include reference="Dzn-E2-Hps"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="Hu8-RK-GaL"/>
+                                <include reference="z33-0w-AhE"/>
+                                <include reference="UbE-Na-Q2H"/>
+                                <include reference="boz-Lf-pgH"/>
+                                <include reference="pNH-mh-oZl"/>
+                                <include reference="9cl-cw-d3A"/>
+                                <include reference="NIH-5m-6Vi"/>
+                                <include reference="ZXi-CU-XPM"/>
+                            </mask>
+                        </variation>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="52.5" y="375"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="ic_qk_logo" width="48" height="48"/>
+        <image name="quicktext.png" width="568" height="74"/>
+        <image name="welcomebg.png" width="960" height="1600"/>
+    </resources>
+</document>
