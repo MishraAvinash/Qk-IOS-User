@@ -1,24 +1,23 @@
 //
-//  Profile+CoreDataProperties.h
+//  Login+CoreDataProperties.h
 //  QuicKonnect
 //
-//  Created by Vijayalakshmi Shankar on 8/9/16.
+//  Created by Vijaya Gujjari on 18/08/16.
 //  Copyright © 2016 Amit. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
 //  to delete and recreate this implementation file for your updated model.
 //
 
-#import "Profile.h"
+#import "Login.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Profile (CoreDataProperties)
+@interface Login (CoreDataProperties)
 
-@property (nullable, nonatomic, retain) NSString *displayname;
 @property (nullable, nonatomic, retain) NSString *email;
-@property (nullable, nonatomic, retain) NSNumber *phonenumber;
-@property (nullable, nonatomic, retain) NSNumber *birthday;
+@property (nullable, nonatomic, retain) NSString *password;
+@property (nullable, nonatomic, retain) NSNumber *sync_flag;
 
 @end
 

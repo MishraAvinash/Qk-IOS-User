@@ -1,8 +1,8 @@
 //
-//  Profile.h
+//  Login.h
 //  QuicKonnect
 //
-//  Created by Vijayalakshmi Shankar on 8/9/16.
+//  Created by Vijaya Gujjari on 18/08/16.
 //  Copyright © 2016 Amit. All rights reserved.
 //
 
@@ -11,7 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Profile : NSManagedObject
+@interface Login : NSManagedObject
 
 // Insert code here to declare functionality of your managed object subclass
 
@@ -19,4 +19,4 @@ NS_ASSUME_NONNULL_BEGIN
 
 NS_ASSUME_NONNULL_END
 
-#import "Profile+CoreDataProperties.h"
+#import "Login+CoreDataProperties.h"

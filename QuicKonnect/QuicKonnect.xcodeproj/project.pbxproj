@@ -189,8 +189,23 @@
 		0EF925FB1D229D94001183E3 /* QKRegistrationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EF925FA1D229D94001183E3 /* QKRegistrationVC.m */; };
 		0EF925FF1D22C3FA001183E3 /* QKUpdateProfileVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EF925FE1D22C3FA001183E3 /* QKUpdateProfileVC.m */; };
 		0EF926041D22D607001183E3 /* UpdateProfileCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EF926031D22D607001183E3 /* UpdateProfileCell.m */; };
-		3DD855F91D59AF0300BDA015 /* Profile+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD855F61D59AF0300BDA015 /* Profile+CoreDataProperties.m */; };
-		3DD855FA1D59AF0300BDA015 /* Profile.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD855F81D59AF0300BDA015 /* Profile.m */; };
+		3D3ACB461D649BDC0049D683 /* QKForgotPasswordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D3ACB451D649BDC0049D683 /* QKForgotPasswordVC.m */; };
+		3DBEF4451D6D95B400383064 /* QKEnterOTPVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DBEF4441D6D95B300383064 /* QKEnterOTPVC.m */; };
+		956471941D6FE06300395D7E /* QKProfileFillingResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 956471921D6FE06300395D7E /* QKProfileFillingResponse.m */; };
+		956471971D70015C00395D7E /* ScanDBOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 956471951D70015C00395D7E /* ScanDBOperation.m */; };
+		9564719A1D7001CF00395D7E /* ScanDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 956471981D7001CF00395D7E /* ScanDB.m */; };
+		95ACAF741D64D0BE0098ACA9 /* QKAccessTokenRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 95ACAF721D64D0BE0098ACA9 /* QKAccessTokenRequest.m */; };
+		95ACAF771D64D0D10098ACA9 /* QKAccessTokenResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 95ACAF751D64D0D10098ACA9 /* QKAccessTokenResponse.m */; };
+		95ACAF7A1D64D0E00098ACA9 /* QKAccessTokenCriteria.m in Sources */ = {isa = PBXBuildFile; fileRef = 95ACAF791D64D0E00098ACA9 /* QKAccessTokenCriteria.m */; };
+		95ACAFB11D64F1A80098ACA9 /* Login+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 95ACAFAA1D64F1A80098ACA9 /* Login+CoreDataProperties.m */; };
+		95ACAFB21D64F1A80098ACA9 /* Login.m in Sources */ = {isa = PBXBuildFile; fileRef = 95ACAFAC1D64F1A80098ACA9 /* Login.m */; };
+		95EAE66A1D6F58EA003373E6 /* QKCoreDataInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = 95EAE6661D6F58EA003373E6 /* QKCoreDataInterface.m */; };
+		95EAE66B1D6F58EA003373E6 /* QKRequestInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = 95EAE6671D6F58EA003373E6 /* QKRequestInterface.m */; };
+		95EAE6741D6F5903003373E6 /* GenProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 95EAE66D1D6F5903003373E6 /* GenProfile.m */; };
+		95EAE6751D6F5903003373E6 /* GenProfile+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 95EAE66E1D6F5903003373E6 /* GenProfile+CoreDataProperties.m */; };
+		95EAE6761D6F5903003373E6 /* Authorize+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 95EAE6701D6F5903003373E6 /* Authorize+CoreDataProperties.m */; };
+		95EAE6771D6F5903003373E6 /* Authorize.m in Sources */ = {isa = PBXBuildFile; fileRef = 95EAE6731D6F5903003373E6 /* Authorize.m */; };
+		95EAE67A1D6F5937003373E6 /* QKProfileFillingRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 95EAE6781D6F5937003373E6 /* QKProfileFillingRequest.m */; };
 		E24C0F2D1C0274AD4542FF84 /* libPods-QuicKonnect.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E4C9584751A93658B9F1B34 /* libPods-QuicKonnect.a */; };
 /* End PBXBuildFile section */
 
@@ -430,11 +445,41 @@
 		0EF925FE1D22C3FA001183E3 /* QKUpdateProfileVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QKUpdateProfileVC.m; path = Controllers/QKUpdateProfileVC/QKUpdateProfileVC.m; sourceTree = "<group>"; };
 		0EF926021D22D607001183E3 /* UpdateProfileCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UpdateProfileCell.h; path = Views/TableCell/UpdateProfileCell/UpdateProfileCell.h; sourceTree = "<group>"; };
 		0EF926031D22D607001183E3 /* UpdateProfileCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UpdateProfileCell.m; path = Views/TableCell/UpdateProfileCell/UpdateProfileCell.m; sourceTree = "<group>"; };
-		3DD855F51D59AF0300BDA015 /* Profile+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Profile+CoreDataProperties.h"; sourceTree = "<group>"; };
-		3DD855F61D59AF0300BDA015 /* Profile+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Profile+CoreDataProperties.m"; sourceTree = "<group>"; };
-		3DD855F71D59AF0300BDA015 /* Profile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Profile.h; sourceTree = "<group>"; };
-		3DD855F81D59AF0300BDA015 /* Profile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Profile.m; sourceTree = "<group>"; };
+		3D3ACB441D649BDC0049D683 /* QKForgotPasswordVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKForgotPasswordVC.h; sourceTree = "<group>"; };
+		3D3ACB451D649BDC0049D683 /* QKForgotPasswordVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKForgotPasswordVC.m; sourceTree = "<group>"; };
+		3DBEF4431D6D95B300383064 /* QKEnterOTPVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QKEnterOTPVC.h; sourceTree = "<group>"; };
+		3DBEF4441D6D95B300383064 /* QKEnterOTPVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QKEnterOTPVC.m; sourceTree = "<group>"; };
 		76E70C14FC29CCF2E999DD6C /* Pods-QuicKonnect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuicKonnect.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QuicKonnect/Pods-QuicKonnect.debug.xcconfig"; sourceTree = "<group>"; };
+		956471921D6FE06300395D7E /* QKProfileFillingResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QKProfileFillingResponse.m; path = Sevices/Response/QKProfileFillingResponse.m; sourceTree = "<group>"; };
+		956471931D6FE06300395D7E /* QKProfileFillingResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QKProfileFillingResponse.h; path = Sevices/Response/QKProfileFillingResponse.h; sourceTree = "<group>"; };
+		956471951D70015C00395D7E /* ScanDBOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScanDBOperation.m; path = Sync/ScanDBOperation.m; sourceTree = "<group>"; };
+		956471961D70015C00395D7E /* ScanDBOpertion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScanDBOpertion.h; path = Sync/ScanDBOpertion.h; sourceTree = "<group>"; };
+		956471981D7001CF00395D7E /* ScanDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScanDB.m; path = Sync/ScanDB.m; sourceTree = "<group>"; };
+		956471991D7001CF00395D7E /* ScanDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScanDB.h; path = Sync/ScanDB.h; sourceTree = "<group>"; };
+		95ACAF721D64D0BE0098ACA9 /* QKAccessTokenRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QKAccessTokenRequest.m; path = Sevices/Request/QKAccessTokenRequest.m; sourceTree = "<group>"; };
+		95ACAF731D64D0BE0098ACA9 /* QKAccessTokenRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QKAccessTokenRequest.h; path = Sevices/Request/QKAccessTokenRequest.h; sourceTree = "<group>"; };
+		95ACAF751D64D0D10098ACA9 /* QKAccessTokenResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QKAccessTokenResponse.m; path = Sevices/Response/QKAccessTokenResponse.m; sourceTree = "<group>"; };
+		95ACAF761D64D0D10098ACA9 /* QKAccessTokenResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QKAccessTokenResponse.h; path = Sevices/Response/QKAccessTokenResponse.h; sourceTree = "<group>"; };
+		95ACAF781D64D0E00098ACA9 /* QKAccessTokenCriteria.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QKAccessTokenCriteria.h; path = Sevices/ServiceCriteria/QKAccessTokenCriteria.h; sourceTree = "<group>"; };
+		95ACAF791D64D0E00098ACA9 /* QKAccessTokenCriteria.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QKAccessTokenCriteria.m; path = Sevices/ServiceCriteria/QKAccessTokenCriteria.m; sourceTree = "<group>"; };
+		95ACAFA91D64F1A80098ACA9 /* Login+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Login+CoreDataProperties.h"; sourceTree = "<group>"; };
+		95ACAFAA1D64F1A80098ACA9 /* Login+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Login+CoreDataProperties.m"; sourceTree = "<group>"; };
+		95ACAFAB1D64F1A80098ACA9 /* Login.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Login.h; sourceTree = "<group>"; };
+		95ACAFAC1D64F1A80098ACA9 /* Login.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Login.m; sourceTree = "<group>"; };
+		95EAE6661D6F58EA003373E6 /* QKCoreDataInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QKCoreDataInterface.m; path = Interfaces/QKCoreDataInterface.m; sourceTree = "<group>"; };
+		95EAE6671D6F58EA003373E6 /* QKRequestInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QKRequestInterface.m; path = Interfaces/QKRequestInterface.m; sourceTree = "<group>"; };
+		95EAE6681D6F58EA003373E6 /* QKCoreDataInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QKCoreDataInterface.h; path = Interfaces/QKCoreDataInterface.h; sourceTree = "<group>"; };
+		95EAE6691D6F58EA003373E6 /* QKRequestInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QKRequestInterface.h; path = Interfaces/QKRequestInterface.h; sourceTree = "<group>"; };
+		95EAE66C1D6F5903003373E6 /* GenProfile+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GenProfile+CoreDataProperties.h"; path = "Entities/GenProfile+CoreDataProperties.h"; sourceTree = "<group>"; };
+		95EAE66D1D6F5903003373E6 /* GenProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GenProfile.m; path = Entities/GenProfile.m; sourceTree = "<group>"; };
+		95EAE66E1D6F5903003373E6 /* GenProfile+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "GenProfile+CoreDataProperties.m"; path = "Entities/GenProfile+CoreDataProperties.m"; sourceTree = "<group>"; };
+		95EAE66F1D6F5903003373E6 /* Authorize+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Authorize+CoreDataProperties.h"; path = "Entities/Authorize+CoreDataProperties.h"; sourceTree = "<group>"; };
+		95EAE6701D6F5903003373E6 /* Authorize+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Authorize+CoreDataProperties.m"; path = "Entities/Authorize+CoreDataProperties.m"; sourceTree = "<group>"; };
+		95EAE6711D6F5903003373E6 /* GenProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GenProfile.h; path = Entities/GenProfile.h; sourceTree = "<group>"; };
+		95EAE6721D6F5903003373E6 /* Authorize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Authorize.h; path = Entities/Authorize.h; sourceTree = "<group>"; };
+		95EAE6731D6F5903003373E6 /* Authorize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Authorize.m; path = Entities/Authorize.m; sourceTree = "<group>"; };
+		95EAE6781D6F5937003373E6 /* QKProfileFillingRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QKProfileFillingRequest.m; path = Sevices/Request/QKProfileFillingRequest.m; sourceTree = "<group>"; };
+		95EAE6791D6F5937003373E6 /* QKProfileFillingRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QKProfileFillingRequest.h; path = Sevices/Request/QKProfileFillingRequest.h; sourceTree = "<group>"; };
 		9E4C9584751A93658B9F1B34 /* libPods-QuicKonnect.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-QuicKonnect.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD1DA809FD3E6C5EC591DF03 /* Pods-QuicKonnect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuicKonnect.release.xcconfig"; path = "Pods/Target Support Files/Pods-QuicKonnect/Pods-QuicKonnect.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -482,6 +527,10 @@
 		0E09681E1D29620E000B2E3B /* Request */ = {
 			isa = PBXGroup;
 			children = (
+				95EAE6781D6F5937003373E6 /* QKProfileFillingRequest.m */,
+				95EAE6791D6F5937003373E6 /* QKProfileFillingRequest.h */,
+				95ACAF721D64D0BE0098ACA9 /* QKAccessTokenRequest.m */,
+				95ACAF731D64D0BE0098ACA9 /* QKAccessTokenRequest.h */,
 				0E0968211D2962AC000B2E3B /* Request.h */,
 				0E0968221D2962AC000B2E3B /* Request.m */,
 				0E0968241D29672B000B2E3B /* QKLoginRequest.h */,
@@ -497,6 +546,10 @@
 		0E09681F1D296216000B2E3B /* Response */ = {
 			isa = PBXGroup;
 			children = (
+				956471921D6FE06300395D7E /* QKProfileFillingResponse.m */,
+				956471931D6FE06300395D7E /* QKProfileFillingResponse.h */,
+				95ACAF751D64D0D10098ACA9 /* QKAccessTokenResponse.m */,
+				95ACAF761D64D0D10098ACA9 /* QKAccessTokenResponse.h */,
 				0E09682A1D296856000B2E3B /* QKResponse.h */,
 				0E09682B1D296856000B2E3B /* QKResponse.m */,
 				0E09682D1D296993000B2E3B /* QKLoginResponse.h */,
@@ -512,6 +565,8 @@
 		0E0968201D29623C000B2E3B /* ServiceCriteria */ = {
 			isa = PBXGroup;
 			children = (
+				95ACAF781D64D0E00098ACA9 /* QKAccessTokenCriteria.h */,
+				95ACAF791D64D0E00098ACA9 /* QKAccessTokenCriteria.m */,
 				0E0968271D296773000B2E3B /* QKLoginCriteria.h */,
 				0E0968281D296773000B2E3B /* QKLoginCriteria.m */,
 				0E55A3F81D2CFBEF00BAC515 /* QKSignUpCriteria.h */,
@@ -605,6 +660,9 @@
 		0E8EE5BA1D1EB3EF0080A787 /* QuicKonnect */ = {
 			isa = PBXGroup;
 			children = (
+				95C749621D6F2F5700531573 /* Synch */,
+				95C7495E1D6F2F3000531573 /* Interfaces */,
+				95C7495D1D6F2EBC00531573 /* Entities */,
 				0E09681D1D2961D4000B2E3B /* Services */,
 				0E0967EA1D296146000B2E3B /* Utility */,
 				0E8EE5F31D1EB4290080A787 /* Models */,
@@ -618,10 +676,6 @@
 				0E8EE5CF1D1EB3EF0080A787 /* Info.plist */,
 				0E8EE5C71D1EB3EF0080A787 /* QuicKonnect.xcdatamodeld */,
 				0E8EE5BB1D1EB3EF0080A787 /* Supporting Files */,
-				3DD855F51D59AF0300BDA015 /* Profile+CoreDataProperties.h */,
-				3DD855F61D59AF0300BDA015 /* Profile+CoreDataProperties.m */,
-				3DD855F71D59AF0300BDA015 /* Profile.h */,
-				3DD855F81D59AF0300BDA015 /* Profile.m */,
 			);
 			path = QuicKonnect;
 			sourceTree = "<group>";
@@ -657,6 +711,8 @@
 		0E8EE5F11D1EB40D0080A787 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				3DBEF4421D6D957F00383064 /* QKEnterOTPVC */,
+				3D3ACB431D649B0D0049D683 /* QKForgotVC */,
 				0EADA7611D26830000772064 /* QKQrCodeVC */,
 				0EADA75D1D267F9200772064 /* QKShareProfileVC */,
 				0E90DA041D259BF300559381 /* QKAddContactVC */,
@@ -1066,6 +1122,24 @@
 			name = UpdateProfileCell;
 			sourceTree = "<group>";
 		};
+		3D3ACB431D649B0D0049D683 /* QKForgotVC */ = {
+			isa = PBXGroup;
+			children = (
+				3D3ACB441D649BDC0049D683 /* QKForgotPasswordVC.h */,
+				3D3ACB451D649BDC0049D683 /* QKForgotPasswordVC.m */,
+			);
+			name = QKForgotVC;
+			sourceTree = "<group>";
+		};
+		3DBEF4421D6D957F00383064 /* QKEnterOTPVC */ = {
+			isa = PBXGroup;
+			children = (
+				3DBEF4431D6D95B300383064 /* QKEnterOTPVC.h */,
+				3DBEF4441D6D95B300383064 /* QKEnterOTPVC.m */,
+			);
+			name = QKEnterOTPVC;
+			sourceTree = "<group>";
+		};
 		526E1C16B7B30B95C8F53EA9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1081,6 +1155,47 @@
 				DD1DA809FD3E6C5EC591DF03 /* Pods-QuicKonnect.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		95C7495D1D6F2EBC00531573 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				95EAE66C1D6F5903003373E6 /* GenProfile+CoreDataProperties.h */,
+				95EAE66D1D6F5903003373E6 /* GenProfile.m */,
+				95EAE66E1D6F5903003373E6 /* GenProfile+CoreDataProperties.m */,
+				95EAE66F1D6F5903003373E6 /* Authorize+CoreDataProperties.h */,
+				95EAE6701D6F5903003373E6 /* Authorize+CoreDataProperties.m */,
+				95EAE6711D6F5903003373E6 /* GenProfile.h */,
+				95EAE6721D6F5903003373E6 /* Authorize.h */,
+				95EAE6731D6F5903003373E6 /* Authorize.m */,
+				95ACAFAC1D64F1A80098ACA9 /* Login.m */,
+				95ACAFAB1D64F1A80098ACA9 /* Login.h */,
+				95ACAFAA1D64F1A80098ACA9 /* Login+CoreDataProperties.m */,
+				95ACAFA91D64F1A80098ACA9 /* Login+CoreDataProperties.h */,
+			);
+			name = Entities;
+			sourceTree = "<group>";
+		};
+		95C7495E1D6F2F3000531573 /* Interfaces */ = {
+			isa = PBXGroup;
+			children = (
+				95EAE6661D6F58EA003373E6 /* QKCoreDataInterface.m */,
+				95EAE6671D6F58EA003373E6 /* QKRequestInterface.m */,
+				95EAE6681D6F58EA003373E6 /* QKCoreDataInterface.h */,
+				95EAE6691D6F58EA003373E6 /* QKRequestInterface.h */,
+			);
+			name = Interfaces;
+			sourceTree = "<group>";
+		};
+		95C749621D6F2F5700531573 /* Synch */ = {
+			isa = PBXGroup;
+			children = (
+				956471981D7001CF00395D7E /* ScanDB.m */,
+				956471991D7001CF00395D7E /* ScanDB.h */,
+				956471951D70015C00395D7E /* ScanDBOperation.m */,
+				956471961D70015C00395D7E /* ScanDBOpertion.h */,
+			);
+			name = Synch;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1339,18 +1454,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E90D9F01D2537EA00559381 /* DetailProfileTableViewCell.m in Sources */,
-				3DD855F91D59AF0300BDA015 /* Profile+CoreDataProperties.m in Sources */,
+				95ACAFB11D64F1A80098ACA9 /* Login+CoreDataProperties.m in Sources */,
 				0EADA7691D268FA900772064 /* QKViewProfileVC.m in Sources */,
+				95ACAF771D64D0D10098ACA9 /* QKAccessTokenResponse.m in Sources */,
+				9564719A1D7001CF00395D7E /* ScanDB.m in Sources */,
 				0E90DA031D256DE600559381 /* GetLocalContacts.m in Sources */,
+				95EAE66A1D6F58EA003373E6 /* QKCoreDataInterface.m in Sources */,
 				0E46D68B1D23AB5700616245 /* QKSliderTableVC.m in Sources */,
 				0E09682F1D296993000B2E3B /* QKLoginResponse.m in Sources */,
 				0E90D9F41D255EB400559381 /* QKPostsVC.m in Sources */,
 				0EF925FB1D229D94001183E3 /* QKRegistrationVC.m in Sources */,
 				0E8EE5C91D1EB3EF0080A787 /* QuicKonnect.xcdatamodeld in Sources */,
+				95EAE6741D6F5903003373E6 /* GenProfile.m in Sources */,
 				0EADA7601D267FC500772064 /* QKShareProfileVC.m in Sources */,
 				0E55A3F71D2CFBBD00BAC515 /* QKSIgnUpResponse.m in Sources */,
+				95EAE6761D6F5903003373E6 /* Authorize+CoreDataProperties.m in Sources */,
 				0E46D6821D23A8F900616245 /* MFSideMenuShadow.m in Sources */,
 				0EADA75C1D26774600772064 /* QKAddContactVC.m in Sources */,
+				95ACAFB21D64F1A80098ACA9 /* Login.m in Sources */,
+				95EAE6751D6F5903003373E6 /* GenProfile+CoreDataProperties.m in Sources */,
 				0E46D6911D23B7D400616245 /* QKSliderNavController.m in Sources */,
 				0E46D6831D23A8F900616245 /* UIViewController+MFSideMenuAdditions.m in Sources */,
 				0E55A3FA1D2CFBEF00BAC515 /* QKSignUpCriteria.m in Sources */,
@@ -1359,13 +1481,15 @@
 				0E8EE5C01D1EB3EF0080A787 /* AppDelegate.m in Sources */,
 				0E8EE73D1D1ECCC60080A787 /* JVFloatLabeledTextField.m in Sources */,
 				0E46D6871D23AADB00616245 /* QKHomeVC.m in Sources */,
-				3DD855FA1D59AF0300BDA015 /* Profile.m in Sources */,
 				0E90D9F81D25667500559381 /* QKNotificationsVC.m in Sources */,
 				0E8EE7311D1ECC9E0080A787 /* NSString+TextDirectionality.m in Sources */,
 				0E0968291D296773000B2E3B /* QKLoginCriteria.m in Sources */,
 				0E46D6951D23B80100616245 /* QKHomeNavController.m in Sources */,
+				95EAE67A1D6F5937003373E6 /* QKProfileFillingRequest.m in Sources */,
 				0E46D6811D23A8F900616245 /* MFSideMenuContainerViewController.m in Sources */,
+				95ACAF741D64D0BE0098ACA9 /* QKAccessTokenRequest.m in Sources */,
 				0E8EE7101D1EC8AE0080A787 /* QKLandingVC.m in Sources */,
+				95EAE66B1D6F58EA003373E6 /* QKRequestInterface.m in Sources */,
 				0E09682C1D296856000B2E3B /* QKResponse.m in Sources */,
 				0E8EE5BD1D1EB3EF0080A787 /* main.m in Sources */,
 				0E55A3FD1D2D12A300BAC515 /* QKCheckEmailResponse.m in Sources */,
@@ -1377,14 +1501,20 @@
 				0EF925FF1D22C3FA001183E3 /* QKUpdateProfileVC.m in Sources */,
 				0E55A3F41D2CFB8300BAC515 /* QKSignUpRequest.m in Sources */,
 				0E8EE72D1D1ECC910080A787 /* RPFloatingPlaceholderTextField.m in Sources */,
+				95EAE6771D6F5903003373E6 /* Authorize.m in Sources */,
+				956471941D6FE06300395D7E /* QKProfileFillingResponse.m in Sources */,
 				0EADA76D1D26904900772064 /* ViewProfileCell.m in Sources */,
 				0E8EE73A1D1ECCB70080A787 /* MTProgressView.m in Sources */,
 				0E0967F11D296195000B2E3B /* MBProgressHUD.m in Sources */,
+				95ACAF7A1D64D0E00098ACA9 /* QKAccessTokenCriteria.m in Sources */,
 				0E90D9FC1D256AC100559381 /* QKContactsVC.m in Sources */,
 				0E0968261D29672B000B2E3B /* QKLoginRequest.m in Sources */,
 				0E8EE7411D1ECDDE0080A787 /* Reachability.m in Sources */,
+				3DBEF4451D6D95B400383064 /* QKEnterOTPVC.m in Sources */,
 				0EADA7641D26832500772064 /* QKQrCodeVC.m in Sources */,
+				956471971D70015C00395D7E /* ScanDBOperation.m in Sources */,
 				0E8EE72E1D1ECC910080A787 /* RPFloatingPlaceholderTextView.m in Sources */,
+				3D3ACB461D649BDC0049D683 /* QKForgotPasswordVC.m in Sources */,
 				0E0968231D2962AC000B2E3B /* Request.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -54,6 +54,8 @@ typedef enum {
 @property (nonatomic, assign) CGFloat leftMenuWidth;
 @property (nonatomic, assign) CGFloat rightMenuWidth;
 
+@property (strong, nonatomic) NSString *profile_name;
+
 // shadow
 @property (nonatomic, strong) MFSideMenuShadow *shadow;
 

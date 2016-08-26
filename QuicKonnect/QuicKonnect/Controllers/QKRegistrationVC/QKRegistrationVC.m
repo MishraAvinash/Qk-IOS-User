@@ -9,11 +9,9 @@
 #import "QKRegistrationVC.h"
 #import "QKUpdateProfileVC.h"
 #import "MTProgressIndicator.h"
+#import "QKCoreDataInterface.h"
+#import "QKRequestInterface.h"
 
-#import "QKSignUpCriteria.h"
-#import "QKCheckEmailRequest.h"
-//#import "QkSignUpResponse.h"
-#import "QKCheckEmailResponse.h"
 
 @interface QKRegistrationVC ()
 {
@@ -22,6 +20,8 @@
     NSString *termsAndConditions;
     
     QKSignUpCriteria* signupCrit;
+    QKAccessTokenCriteria* accessTokenCrit;
+    
 }
 
 @end
@@ -232,11 +232,30 @@
                 
             });
             
+            [self callSignUpService];
+        });
+        
+        
+    }
+  /*
+    if([self checkLoginInfoNotNULL])
+    {
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                [[MTProgressIndicator sharedIndicator] showProgressView];
+                
+            });
+            
             [self callEmailCheckService];
         });
         
         
     }
+*/
     
     
     /* QKUpdateProfileVC *updateProfileVC = (QKUpdateProfileVC *)[self.storyboard instantiateViewControllerWithIdentifier:@"QKUpdateProfileVC"];
@@ -309,20 +328,53 @@
         return TRUE;
     }
 }
+//VIJAYA - INTERFACE APPROACH - NOT WORKING
+/*
+- (void) callSignUpService
+{
+    NSMutableDictionary *dic = [[NSMutableDictionary alloc]init];
+    [dic setObject:self.firstnametxt.text forKey:@"first_name"];
+    [dic setObject:self.lastnametxt.text forKey:@"last_name"];
+    [dic setObject:self.emailidtxr.text forKey:@"email"];
+    [dic setObject:self.pwdtxt.text forKey:@"password"];
+    
+    QKRequestInterface* interface = [[QKRequestInterface alloc] init];
+    [interface callSignUpService:dic withCallback:^(NSError *error, NSString *response){
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [[MTProgressIndicator sharedIndicator] dismissProgressView];
+            
+        });
+        
+        if (error) {
+            NSLog(@"%@",error);
+            [self DisplayErrorAlert:response];
+            return ;
+        }
+        
+        NSLog(@"SIGNUP RESPONSE : %@", response);
+        if([response isEqualToString:@"Success"])
+            [self navigateToNext];
+        else
+            [self DisplayErrorAlert:response];
+        
+    }];
+}
+*/
 
 
+//VIJAYA NEW CODE
 
-- (void) callEmailCheckService
+/*
+- (void) callSignUpService
 {
     //  [self showHUDProgress];
-    
-    
+ 
     NSDate *currDate = [NSDate date];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     NSString *dateString = [dateFormatter stringFromDate:currDate];
     
-     signupCrit = [[QKSignUpCriteria alloc] init];
+    signupCrit = [[QKSignUpCriteria alloc] init];
     
     signupCrit.fName = self.firstnametxt.text;
     signupCrit.lName = self.lastnametxt.text;
@@ -330,40 +382,193 @@
     signupCrit.password = self.pwdtxt.text;
     signupCrit.cDateStr = dateString;
     
-    QKCheckEmailRequest* request = [[QKCheckEmailRequest alloc] init];
-    [request callEmailCheckServiceWithCriteria:signupCrit withCallback:^(NSError* error, QKResponse* response){
+    QKSignUpRequest* request = [[QKSignUpRequest alloc] init];
+    
+    [request callRegistrationServiceWithCriteria:signupCrit withCallback:^(NSError* error, QKResponse* response){
         
         dispatch_async(dispatch_get_main_queue(), ^{
-             
+            
+            [[MTProgressIndicator sharedIndicator] dismissProgressView];
+            
+        });
+        
+        if (error) {
+            NSLog(@"%@",error);
+            return ;
+        }
+        
+        QKSignUpResponse* signUpResponse = (QKSignUpResponse*)response;
+        NSString* email = [NSString stringWithFormat:@"%@",signUpResponse.email];
+        NSNumber* number = [signUpResponse Response];
+        NSLog(@"%@", signUpResponse );
+        if([number isEqualToNumber:[NSNumber numberWithInt:1]]) //Registration Success
+        {
+            //Get Access Token
+            QKRequestInterface* interface = [[QKRequestInterface alloc] init];
+            [interface callAccessTokenService:signUpResponse :nil :nil withCallback:^(NSError *error, NSString *response){
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    
+                    [[MTProgressIndicator sharedIndicator] dismissProgressView];
+                    
+                });
+                
+                if (error) {
+                    NSLog(@"%@",error);
+                    return ;
+                }
+                
+                NSLog(@"REQUEST INTERFACE ACCESS TOKEN CALL RESPONSE : %@", response);
+                [self navigateToNext];
+            }];
+        }
+        else if([email isEqualToString:@"Email Already existed. Please Enter New Email address!"])
+        {
+            [self DisplayErrorAlert:@"Email Already Exists."];
+        }
+        else
+        {
+            [self DisplayErrorAlert:@"Registration Error."];
+        }
+        
+    }];
+}
+
+*/
+
+- (void) callSignUpService
+{
+    //  [self showHUDProgress];
+    
+    NSDate *currDate = [NSDate date];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSString *dateString = [dateFormatter stringFromDate:currDate];
+    
+    signupCrit = [[QKSignUpCriteria alloc] init];
+    
+    signupCrit.fName = self.firstnametxt.text;
+    signupCrit.lName = self.lastnametxt.text;
+    signupCrit.email = self.emailidtxr.text;
+    signupCrit.password = self.pwdtxt.text;
+    signupCrit.cDateStr = dateString;
+    
+    QKSignUpRequest* request = [[QKSignUpRequest alloc] init];
+
+    [request callRegistrationServiceWithCriteria:signupCrit withCallback:^(NSError* error, QKResponse* response){
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            [[MTProgressIndicator sharedIndicator] dismissProgressView];
+            
+        });
+        
+        if (error) {
+            NSLog(@"%@",error);
+            return ;
+        }
+        
+        QKSignUpResponse* signUpResponse = (QKSignUpResponse*)response;
+        NSString* client_id = [signUpResponse client_id];
+        NSString* grant_type = [signUpResponse grant_type];
+        
+        NSString* email = [NSString stringWithFormat:@"%@",signUpResponse.email];
+        NSNumber* number = [signUpResponse Response];
+        
+        
+        NSLog(@"%@, %@",client_id, grant_type);
+        NSLog(@"%@", signUpResponse );
+        NSLog(@"%@", [signUpResponse email] );
+        
+        if([number isEqualToNumber:[NSNumber numberWithInt:1]]) //Registration Success
+        {
+            //Get Access Token
+            [self callAccessTokenService:signUpResponse];
+        }
+        else if([email isEqualToString:@"Email Already existed. Please Enter New Email address!"])
+        {
+            [self DisplayErrorAlert:@"Email Already Exists"];
+        }
+        else
+        {
+            [self DisplayErrorAlert:@"Error while registering"];
+        }
+        
+    }];
+}
+ 
+
+-(void) DisplayErrorAlert : (NSString*)errorMessage
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"QuicKonnect" message:errorMessage delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+    [alert show];
+}
+
+- (void) callAccessTokenService : (QKSignUpResponse*)signUpResponse
+{
+    accessTokenCrit = [[QKAccessTokenCriteria alloc] init];
+    NSString* login_email;
+    
+    if(signUpResponse != nil)
+    {
+        accessTokenCrit.username= signUpResponse.username;
+        accessTokenCrit.client_id = signUpResponse.client_id;
+        accessTokenCrit.client_secret = signUpResponse.client_secret;
+        accessTokenCrit.grant_type = signUpResponse.grant_type;
+    }
+    else
+    {
+        //        NSEntityDescription* authorize = [QKCoreDataInterface fetchEntityFor:"Authorize" :"emailid" :login_email];
+        
+    }
+    
+    accessTokenCrit.password = self.pwdtxt.text;
+    
+    QKAccessTokenRequest* request = [[QKAccessTokenRequest alloc] init];
+    
+    [request callAccessTokenServiceWithCriteria:accessTokenCrit withCallback:^(NSError* error, QKResponse* response){
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
             [[MTProgressIndicator sharedIndicator] dismissProgressView];
             
         });
         
         if (error) {
             
-            // NSLog(@"%@",error);
+            NSLog(@"%@",error);
             
             return ;
         }
         
-        QKCheckEmailResponse* emailResponse = (QKCheckEmailResponse*)response;
-        NSString* checkEmail = emailResponse.emailCheck;
-        //NSString* userId = [NSString stringWithFormat:@"%@",loginResponse.userid];
+        QKAccessTokenResponse* accessTokenResponse = (QKAccessTokenResponse*)response;
         
-        NSLog(@"%@",checkEmail);
-        if(![checkEmail isEqualToString:@"Email ID already exists"])
+        NSString* access_token = [ accessTokenResponse access_token];
+        NSNumber* number = [signUpResponse Response];
+        
+        
+        NSLog(@"%@",access_token);
+        NSLog(@"%@", signUpResponse );
+        
+        if([number isEqualToNumber:[NSNumber numberWithInt:1]]) //Access Token Success
         {
+            NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+            
+            [dic setObject:self.pwdtxt.text forKey:@"password"];
+            [dic setObject:self.emailidtxr.text forKey:@"emailid"];
+            
+            [QKCoreDataInterface saveAuthorization:accessTokenResponse :signUpResponse :@"" :dic];
             [self navigateToNext];
         }
-        else{
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"QuicKonnect" message:@"Email already exists" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-            [alert show];
-        }
+        else
+            [self DisplayErrorAlert:@"Error Retrieving Access Token"];
     }];
 }
 
 -(void)navigateToNext
 {
+    
+    [QKCoreDataInterface saveLogin:signupCrit.email :signupCrit.password :false];
+        
     QKUpdateProfileVC *updateProfileVC = (QKUpdateProfileVC *)[self.storyboard instantiateViewControllerWithIdentifier:@"QKUpdateProfileVC"];
     updateProfileVC.profile_name = @"GeneralProfile";
     updateProfileVC.signupCriteria = signupCrit;

@@ -1,14 +1,14 @@
 //
-//  Profile.m
+//  Authorize.m
 //  QuicKonnect
 //
-//  Created by Vijayalakshmi Shankar on 8/9/16.
+//  Created by Vijaya Gujjari on 18/08/16.
 //  Copyright © 2016 Amit. All rights reserved.
 //
 
-#import "Profile.h"
+#import "Authorize.h"
 
-@implementation Profile
+@implementation Authorize
 
 // Insert code here to add functionality to your managed object subclass
 

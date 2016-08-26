@@ -12,6 +12,9 @@
 #import "QKSignUpCriteria.h"
 #import "QKSignUpRequest.h"
 #import "QkSignUpResponse.h"
+#import "QKAccessTokenCriteria.h"
+#import "QKAccessTokenRequest.h"
+#import "QkAccessTokenResponse.h"
 
 @interface QKUpdateProfileVC : UIViewController<UpdateProfileDelegate,UIScrollViewDelegate,UITextFieldDelegate,UITextViewDelegate,UIActionSheetDelegate,UIPickerViewDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 {

@@ -12,9 +12,15 @@
 #import "AFHTTPSessionManager.h"
 #import "UIActivityIndicatorView+AFNetworking.h"
 
+/*
+//#define BASE_URL @"http://172.31.28.178/"
+//#define PRODUCTION @"ec2-54-169-194-233.ap-southeast-1.compute.amazonaws.com";
+//PRODUCTION URL -  #define BASE_URL @"http://ec2-54-254-232-156.ap-southeast-1.compute.amazonaws.com/"
 
-#define BASE_URL @"http://54.254.188.60/"
+ */
 
+//DEVELOPMENT URL
+#define BASE_URL @"http://ec2-54-169-194-233.ap-southeast-1.compute.amazonaws.com/"
 
 //NSString *const kLoginServiceURL=@"User_Login";
 
@@ -95,9 +101,23 @@
     manager.requestSerializer = [AFHTTPRequestSerializer serializer];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
 
-    [manager.requestSerializer setValue:[requestParameter valueForKey:@"aValue"] forHTTPHeaderField:@"Authorization"];
+    //[manager.requestSerializer setValue:[requestParameter valueForKey:self.authorizationString] forHTTPHeaderField:@"Authorization"]; //VIJAYA
     
-    //NSLog(@"%@",[requestParameter valueForKey:@"aValue"]);
+    [manager.requestSerializer setValue:self.authorizationString forHTTPHeaderField:@"Authorization"];
+
+   // [self setValue:self.authorizationString forHTTPHeaderField:@"Authorization"];
+    
+   /*VIJAYA
+    if(self.requestId == RequestId_LoginService)
+    {
+        [manager.requestSerializer setValue:[requestParameter valueForKey:self.authorizationString] forHTTPHeaderField:@"Authorization"];
+        NSLog(@"%@",[requestParameter valueForKey:self.authorizationString]);
+    }
+    */
+    
+   //[manager.requestSerializer setValue:[requestParameter valueForKey:@"aValue"] forHTTPHeaderField:@"Authorization"];
+    
+    NSLog(@"%@",[requestParameter valueForKey:@"aValue"]);
     
     [manager GET:[requestParameter valueForKey:@"methodName"] parameters:[requestParameter valueForKey:@"Param"] progress:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         
@@ -150,6 +170,15 @@
     
     manager.requestSerializer = [AFHTTPRequestSerializer serializer];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    
+    if(self.requestId == RequestId_ProfileFillingService           )
+    {
+        //[manager.requestSerializer setValue:[requestParameter valueForKey:self.authorizationString] forHTTPHeaderField:@"Authorization"];
+        [manager.requestSerializer setValue:self.authorizationString forHTTPHeaderField:@"Authorization"];
+        NSLog(@"%@",[requestParameter valueForKey:self.authorizationString]);
+    }
+    
+    NSLog(@"Request Parameter : %@", requestParameter);
  
     [manager POST:[requestParameter valueForKey:@"methodName"] parameters:[requestParameter valueForKey:@"Param"] progress:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         
@@ -159,7 +188,7 @@
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         
-       // NSLog(@"Error: %@", error);
+         NSLog(@"Error: %@", error);
         
          [self requestFailed:error];
     }];

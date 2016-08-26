@@ -114,6 +114,7 @@
 #pragma mark - IBActions
 - (IBAction)profilesButtonClicked:(UIButton *)sender {
     QKProfileVC *viewProfile = (QKProfileVC *)[self.storyboard instantiateViewControllerWithIdentifier:@"QKProfileVC"];
+    
     [self.navigationController pushViewController:viewProfile animated:YES];
 }
 

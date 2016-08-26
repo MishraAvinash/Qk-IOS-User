@@ -16,9 +16,13 @@
 #import "QKHomeNavController.h"
 #import "QKSliderNavController.h"
 
+#import "QKCoreDataInterface.h"
+#import "QKRequestInterface.h"
+
 #import "QKLoginCriteria.h"
 #import "QKLoginRequest.h"
-#import "QkLoginResponse.h"
+#import "QKLoginResponse.h"
+#import "ScanDB.h"
 
 @interface QKLandingVC ()
 
@@ -204,17 +208,74 @@
             
             
             dispatch_async(dispatch_get_main_queue(), ^{
-                self.scrollView.hidden = YES;
-                self.loadingView.hidden = NO;
-                [[MTProgressIndicator sharedIndicator] showProgressView];
+               // self.email.text=@"";
+              //  self.password.text=@"";
                 
+                self.loadingView.hidden = YES;
+                self.scrollView.hidden = NO;
+                [self dismissProgressOneView];
             });
             
-            [self callLoginService];
+            //VIJAYA NEW CODE
+            QKRequestInterface* interface = [[QKRequestInterface alloc] init];
+            [interface callLoginService:self.email.text :self.password.text withCallback:^(NSError* error, NSString* response){
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    
+                    [[MTProgressIndicator sharedIndicator] dismissProgressView];
+                    
+                    NSLog(@"DISPATCH MAIN QUEUE - SIGNIN BUTTON - LANDING VIEW CONTROLLER");
+
+                    
+                    if (error) {
+                       [self DisplayErrorAlert:response];
+                        return ;
+                    }
+                    
+                    if([response isEqualToString:@"Success"]) //Registration Success
+                    {
+                        NSLog(@"REQUEST INTERFACE ACCESS TOKEN CALL RESPONSE : %@", response);
+                        [self navigateToSlider];
+                        
+                    }
+                    else
+                    {
+                        [self DisplayErrorAlert:response];
+                    }
+                    
+                });
+                /*
+                if (error) {
+                    NSLog(@"%@",error);
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"LOGIN" message:@"Username/Password is incorrect." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                    [alert show];
+                    return ;
+                }
+
+                if([response isEqualToString:@"Success"]) //Registration Success
+                {
+                        NSLog(@"REQUEST INTERFACE ACCESS TOKEN CALL RESPONSE : %@", response);
+                        [self navigateToSlider];
+
+                }
+                else
+                {
+                    [self DisplayErrorAlert:response];
+                }*/
+            }];
+            //VIJAYA END NEW CODE
+            //VIJAYA COMMENTING OLD CODE
+            //[self callLoginService];
             
         });
     }
 }
+
+-(void) DisplayErrorAlert : (NSString*)errorMessage
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"QuicKonnect" message:errorMessage delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+    [alert show];
+}
+
 
 - (void) callLoginService
 {
@@ -257,6 +318,9 @@
          [self navigateToSlider];
     }];
 }
+ 
+
+
 - (BOOL) checkLoginInfoNotNULL
 {
     
@@ -318,11 +382,11 @@
 
 - (void)navigateToSlider {
     
+   // [QKCoreDataInterface saveLogin:self.email.text :self.password.text :false];
+    
     QKHomeNavController *welcomeNav = [self.storyboard instantiateViewControllerWithIdentifier:@"QKHomeNavController"];
     
-    
     MFSideMenuContainerViewController *container = [self.storyboard instantiateViewControllerWithIdentifier:@"MFSideMenuContainerViewController"];
-    
     
     [container setCenterViewController:welcomeNav];
     

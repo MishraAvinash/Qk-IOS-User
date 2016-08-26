@@ -63,7 +63,7 @@
 - (void) parseSignUpData:(id)responseData
 {
     
-    // NSLog(@"%@",responseData);
+     NSLog(@"%@",responseData);
     
     if (![responseData isKindOfClass:[NSDictionary class]]) {
         NSError* error = [[NSError alloc]initWithDomain:@"Data not found" code:12345 userInfo:@{@"userinfo": @"Data not found"}];
@@ -73,11 +73,14 @@
     
     NSDictionary* responseDic = (NSDictionary*)responseData;
     
+    NSLog(@"VIJAYA EMAIL : %@", [responseDic valueForKey:@"email"]);
+    NSLog(@"VIJAYA DATA : %@", [responseDic valueForKey:@"data"]);
+    
     if ([responseDic objectForKey:@"data"] ==  [NSNull null]) {
         NSError* error = [[NSError alloc]initWithDomain:responseDic[@"status_message"] code:12345 userInfo:@{@"userinfo": responseDic[@"status_message"]}];
         _responseCallback(error, nil);
     }else{
-        QKResponse* responseObj = [MTLJSONAdapter modelOfClass:[QKSIgnUpResponse class] fromJSONDictionary:responseDic error:nil];
+        QKResponse* responseObj = [MTLJSONAdapter modelOfClass:[QKSignUpResponse class] fromJSONDictionary:responseDic error:nil];
         
         _responseCallback(nil, responseObj);
     }

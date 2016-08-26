@@ -18,7 +18,10 @@ typedef enum {
 typedef enum {
     RequestId_LoginService,
     RequestId_SignupService,
-    RequestId_CheckEmailService
+    RequestId_AccessTokenService,
+    RequestId_ProfileFillingService,
+    RequestId_CheckEmailService,
+    
    
 }RequestId;
 
@@ -35,6 +38,7 @@ typedef void (^responseCallback)(NSError* error, QKResponse* response);
 //@property (nonatomic,strong) NSString* methodName;
 @property (nonatomic,assign) RequestType requestType;
 @property (nonatomic,assign) RequestId requestId;
+@property (nonatomic,assign) NSString* authorizationString;
 
 
 - (void) makeGetRequestTOCheckEmailWithMethodName:(NSString *)methodName;

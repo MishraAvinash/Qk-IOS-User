@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface QKHomeNavController : UINavigationController
-
+@property (strong, nonatomic) NSString *profile_name;
 @end

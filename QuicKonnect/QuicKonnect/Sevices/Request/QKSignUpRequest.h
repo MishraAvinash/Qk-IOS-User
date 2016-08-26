@@ -14,6 +14,4 @@
 - (void) callRegistrationServiceWithCriteria:(QKSignUpCriteria *)signUpCriteria withCallback:(responseCallback)callback;
 
 
-
-
 @end

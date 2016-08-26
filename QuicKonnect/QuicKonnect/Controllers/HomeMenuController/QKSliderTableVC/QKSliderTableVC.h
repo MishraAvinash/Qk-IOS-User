@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface QKSliderTableVC : UITableViewController
-
+@property (strong, nonatomic) NSString *profile_name;
 @end

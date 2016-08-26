@@ -10,6 +10,9 @@
 #import "Reachability.h"
 #import "MTProgressIndicator.h"
 
+#import "QKCoreDataInterface.h"
+#import "ScanDBOpertion.h"
+
 
 @interface QKUpdateProfileVC ()
 {
@@ -266,6 +269,55 @@
     // self.ffCollegeDate.inputAccessoryView = keyboardToolBar;
     // self.ffEngagementDate.inputAccessoryView = keyboardToolBar;
     // self.ffMarriageDate.inputAccessoryView = keyboardToolBar;
+ 
+    //Populate cell from core data if already present.
+    
+    NSLog(@"CELL EMAIL - VIJAYA : %@", cell.gEmail.text);
+    
+    if(![cell.gEmail.text isEqualToString:@""])
+        return cell;
+
+    if ([self.profile_name isEqualToString:@"GeneralProfile"])
+    {
+        
+        NSEntityDescription* loginInstance = [QKCoreDataInterface fetchEntityFor:@"Login" :@"" :@""];
+        NSString* login_email = [loginInstance valueForKey:@"email"];
+
+        NSEntityDescription* entityInstance = [QKCoreDataInterface fetchEntityFor:@"GenProfile" :@"email" :login_email];
+        
+        if(entityInstance == nil)
+            return cell;
+        cell.gDisplayName.text = [entityInstance valueForKey:@"display_name"];
+        cell.gEmail.text = [entityInstance valueForKey:@"email"];
+        cell.gBirthday.text = [entityInstance valueForKey:@"birthday"];
+        cell.gPhoneNumber.text = [entityInstance valueForKey:@"phone_number"];
+        cell.gFirstName.text = [entityInstance valueForKey:@"first_name"];
+        cell.gLastName.text = [entityInstance valueForKey:@"last_name"];
+        cell.gCountry.text = [entityInstance valueForKey:@"country"];
+        
+        cell.gAboutMeTxt.text = [entityInstance valueForKey:@"about_me"];
+        cell.gHomeTown.text = [entityInstance valueForKey:@"home_town"];
+        genderTxt = [entityInstance valueForKey:@"gender"];
+        cell.gHomePhone.text = [entityInstance valueForKey:@"home_phone"];
+        cell.gWorkPhone.text = [entityInstance valueForKey:@"work_phone"];
+        cell.gPhoneOther.text = [entityInstance valueForKey:@"other_phone"];
+        cell.gEmailPersonal.text = [entityInstance valueForKey:@"personal_email"];
+        cell.gWorkEmail.text = [entityInstance valueForKey:@"work_email"];
+        cell.gWebsite.text = [entityInstance valueForKey:@"website"];
+        cell.gFacebook.text = [entityInstance valueForKey:@"facebook"];
+        cell.gTwitter.text = [entityInstance valueForKey:@"twitter"];
+        cell.gInstagram.text = [entityInstance valueForKey:@"instagram"];
+        cell.gLinkedin.text = [entityInstance valueForKey:@"linkedin"];
+        cell.gSnapChat.text = [entityInstance valueForKey:@"snapchat"];
+        cell.gGooglePlus.text = [entityInstance valueForKey:@"googleplus"];
+        cell.gSchoolDate.text = [entityInstance valueForKey:@"school_date"];
+        cell.gMarriageDate.text = [entityInstance valueForKey:@"marriage_date"];
+        cell.gEngagementDate.text = [entityInstance valueForKey:@"engagement_date"];
+        cell.gHighSchool.text = [entityInstance valueForKey:@"high_school"];
+        cell.gCollege.text = [entityInstance valueForKey:@"college"];
+        cell.gJobTitle.text = [entityInstance valueForKey:@"job_title"];
+        cell.gCompanyName.text = [entityInstance valueForKey:@"company_name"];
+    }
     
     return cell;
 }
@@ -1323,13 +1375,31 @@
     
 }
 
+-(NSString *) randomStringWithLength: (int) len {
+    
+    NSString *letters = @"ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    
+    NSMutableString *randomString = [NSMutableString stringWithCapacity: len];
+    
+    for (int i=0; i<len; i++) {
+        [randomString appendFormat: @"%C", [letters characterAtIndex: arc4random_uniform((int)[letters length])]];
+    }
+    
+    return randomString;
+}
+
 
 - (void)gSaveBtn:(id)sender {
-  /*  [[NSNotificationCenter defaultCenter] postNotificationName:@"NavigateToSlider" object:nil];
+  /*  [[NSNotificationCenter defaultCenter] postNotificationName:@"NavigateToSlider" object:nil];*/
     
-    [self.navigationController dismissViewControllerAnimated:YES completion:nil];*/
+  //  [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+
+    
+    
+    [self.navigationController popViewControllerAnimated:YES];
     
     if (cell.gPhoneNumber.text.length>0) {
+        /*
         self.signupCriteria.phNumber = cell.gPhoneNumber.text;
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
@@ -1343,12 +1413,89 @@
             
             [self callSignUpService];
         });
-        
+        */
     }
     else{
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"QuicKonnect" message:@"Please enter your phone number" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
         [alert show];
     }
+    
+    //Save Profile
+    
+    NSManagedObjectContext *context = [QKCoreDataInterface getContext];
+    
+    NSEntityDescription* entityInstance = [QKCoreDataInterface fetchEntityFor:@"GenProfile" :@"email" :cell.gEmail.text];
+    
+    if(entityInstance == nil)
+    {
+        entityInstance = (NSEntityDescription*)[NSEntityDescription insertNewObjectForEntityForName:@"GenProfile" inManagedObjectContext:context];
+    }
+    
+    [entityInstance setValue:[cell.gDisplayName text] forKey:@"display_name"];
+    [entityInstance setValue:[cell.gBirthday text] forKey:@"birthday"];
+    [entityInstance setValue:[cell.gPhoneNumber text] forKey:@"phone_number"];
+    [entityInstance setValue:[cell.gEmail text] forKey:@"email"];
+    [entityInstance setValue:[cell.gFirstName text] forKey:@"first_name"];
+    [entityInstance setValue:[cell.gLastName text] forKey:@"last_name"];
+    [entityInstance setValue:[cell.gCurrentLocation text] forKey:@"current_location"];
+    [entityInstance setValue:[cell.gCountry text] forKey:@"country"];
+    [entityInstance setValue:[cell.gAboutMeTxt text] forKey:@"about_me"];
+    [entityInstance setValue:[cell.gHomeTown text] forKey:@"home_town"];
+    
+    [entityInstance setValue:genderTxt forKey:@"gender"];
+    [entityInstance setValue:[cell.gHomePhone text] forKey:@"home_phone"];
+    [entityInstance setValue:[cell.gWorkPhone text] forKey:@"work_phone"];
+    [entityInstance setValue:[cell.gPhoneOther text] forKey:@"other_phone"];
+    [entityInstance setValue:[cell.gEmailPersonal text] forKey:@"personal_email"];
+    [entityInstance setValue:[cell.gWorkEmail text] forKey:@"work_email"];
+    [entityInstance setValue:[cell.gWebsite text] forKey:@"website"];
+    [entityInstance setValue:[cell.gFacebook text] forKey:@"facebook"];
+    [entityInstance setValue:[cell.gTwitter text] forKey:@"twitter"];
+    [entityInstance setValue:[cell.gInstagram text] forKey:@"instagram"];
+    
+    [entityInstance setValue:[cell.gSnapChat text] forKey:@"snapchat"];
+    [entityInstance setValue:[cell.gLinkedin text] forKey:@"linkedin"];
+    [entityInstance setValue:[cell.gGooglePlus text] forKey:@"googleplus"];
+    [entityInstance setValue:[cell.gSchoolDate text] forKey:@"school_date"];
+    [entityInstance setValue:[cell.gMarriageDate text] forKey:@"marriage_date"];
+    [entityInstance setValue:[cell.gEngagementDate text] forKey:@"engagement_date"];
+    [entityInstance setValue:[cell.gHighSchool text] forKey:@"high_school"];
+    [entityInstance setValue:[cell.gCollege text] forKey:@"college"];
+    [entityInstance setValue:[cell.gJobTitle text] forKey:@"job_title"];
+    [entityInstance setValue:[cell.gCompanyName text] forKey:@"company_name"];
+    
+    
+    [entityInstance setValue:[cell.gPhoneNumber text] forKey:@"mobile_phone"];
+    [entityInstance setValue:@"general_profile" forKey:@"profile_type"];
+    
+    NSDateFormatter *dateFormatter=[[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    // or @"yyyy-MM-dd hh:mm:ss a" if you prefer the time with AM/PM
+    NSString* dateString = [dateFormatter stringFromDate:[NSDate date]];
+    
+    
+    NSLog(@"%@",[dateFormatter stringFromDate:[NSDate date]]);
+    [entityInstance setValue:dateString forKey:@"created_date"];
+    
+    bool flag = false;
+    
+    [entityInstance setValue:[NSNumber numberWithBool:flag] forKey:@"sync_flag"];
+    
+    NSString * randomStr = [self randomStringWithLength:6];
+    [entityInstance setValue:randomStr forKey:@"qtag"];
+    
+    // [entityInstance setValue:[cell.gCurrentLocation text] forKey:@"sync_date"];
+    //  [entityInstance setValue:[cell.gCountry text] forKey:@"sync_flag"];
+    
+    NSError *error;
+    if (![context save:&error]) {
+        NSLog(@"Save Error - 1");
+    }
+    
+    NSOperationQueue *queue = [NSOperationQueue new];
+    ScanDBOperation *scandb = [[ScanDBOperation alloc] init ];
+    [queue addOperation:scandb];
+
 }
 
 - (void) callSignUpService

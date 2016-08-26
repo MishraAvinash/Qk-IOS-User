@@ -1,21 +1,20 @@
 //
-//  Profile+CoreDataProperties.m
+//  Login+CoreDataProperties.m
 //  QuicKonnect
 //
-//  Created by Vijayalakshmi Shankar on 8/9/16.
+//  Created by Vijaya Gujjari on 18/08/16.
 //  Copyright © 2016 Amit. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
 //  to delete and recreate this implementation file for your updated model.
 //
 
-#import "Profile+CoreDataProperties.h"
+#import "Login+CoreDataProperties.h"
 
-@implementation Profile (CoreDataProperties)
+@implementation Login (CoreDataProperties)
 
-@dynamic displayname;
 @dynamic email;
-@dynamic phonenumber;
-@dynamic birthday;
+@dynamic password;
+@dynamic sync_flag;
 
 @end

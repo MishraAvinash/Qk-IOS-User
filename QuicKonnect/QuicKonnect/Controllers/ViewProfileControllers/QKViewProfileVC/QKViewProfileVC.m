@@ -11,7 +11,7 @@
 
 #import "QKUpdateProfileVC.h"
 #import "AppDelegate.h"
-#import "Profile.h"
+#import "GenProfile.h"
 
 
 @interface QKViewProfileVC ()
@@ -76,13 +76,10 @@
     NSError *error;
     self.profilesRecord = [[self.stdManagedObjectContext  executeFetchRequest: request error:&error] mutableCopy];
     for(int i=0; i<[self.profilesRecord count]; i++){
-        Profile *proEnt = [ self.profilesRecord objectAtIndex:i];
-        NSLog(@"from CoreData Displayname %@", proEnt.displayname);
-        NSLog(@"from CoreData Phonenumber %@", proEnt.phonenumber);
+        GenProfile *proEnt = [ self.profilesRecord objectAtIndex:i];
+        NSLog(@"from CoreData Displayname %@", proEnt.display_name);
+        NSLog(@"from CoreData Phonenumber %@", proEnt.phone_number);
         NSLog(@"from CoreData Birthday %@", proEnt.birthday);
-        
-              
-        
         
     }
   
@@ -108,6 +105,7 @@
    
     QKUpdateProfileVC *updateProfileVC = (QKUpdateProfileVC *)[self.storyboard instantiateViewControllerWithIdentifier:@"QKUpdateProfileVC"];
     updateProfileVC.profile_name = @"GeneralProfile";
+   // updateProfileVC.loginemail =
     [self.navigationController pushViewController:updateProfileVC animated:YES];
 }
 

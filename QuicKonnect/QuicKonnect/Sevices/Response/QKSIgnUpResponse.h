@@ -1,5 +1,5 @@
 //
-//  QKSIgnUpResponse.h
+//  QKSignUpResponse.h
 //  QuicKonnect
 //
 //  Created by Amit Naskar on 06/07/16.
@@ -8,7 +8,7 @@
 
 #import "QKResponse.h"
 
-@interface QKSIgnUpResponse : QKResponse
+@interface QKSignUpResponse : QKResponse
 
 @property (nonatomic, strong) NSNumber* userid;
 @property (nonatomic, strong) NSString* firstName;
@@ -16,7 +16,8 @@
 @property (nonatomic, strong) NSString* username;
 @property (nonatomic, strong) NSString* client_secret;
 @property (nonatomic, strong) NSString* client_id;
-@property (nonatomic, strong) NSString* grantType;
+@property (nonatomic, strong) NSString* grant_type;
 
+@property (nonatomic, strong) NSString* email;
 
 @end

@@ -1,14 +1,14 @@
 //
-//  QKSIgnUpResponse.m
+//  QKSignUpResponse.m
 //  QuicKonnect
 //
 //  Created by Amit Naskar on 06/07/16.
 //  Copyright © 2016 Amit. All rights reserved.
 //
 
-#import "QKSIgnUpResponse.h"
+#import "QKSignUpResponse.h"
 
-@implementation QKSIgnUpResponse
+@implementation QKSignUpResponse
 + (NSDictionary *)JSONKeyPathsByPropertyKey
 {
     NSMutableDictionary *paths = [[super JSONKeyPathsByPropertyKey] mutableCopy];
@@ -20,7 +20,8 @@
                            @"firstName": @"Data.first_name",
                            @"lastName": @"Data.last_name",
                            @"client_id": @"Data.client_id",
-                           @"grantType": @"Data.grant_type"
+                           @"grant_type": @"Data.grant_type",
+                           @"email": @"email"
                            };
     
     [paths addEntriesFromDictionary:dic];
@@ -38,7 +39,7 @@
     [string appendFormat:@" firstName : %@",_firstName];
     [string appendFormat:@" lastName : %@",_lastName];
     [string appendFormat:@" client_id : %@",_client_id];
-    [string appendFormat:@" grantType : %@",_grantType];
+    [string appendFormat:@" grant_type : %@",_grant_type];
     return string;
 }
 @end

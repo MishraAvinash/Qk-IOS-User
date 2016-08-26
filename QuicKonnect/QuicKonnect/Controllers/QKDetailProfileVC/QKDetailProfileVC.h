@@ -10,6 +10,7 @@
 
 @interface QKDetailProfileVC : UIViewController<UITextFieldDelegate,UIActionSheetDelegate,UISearchBarDelegate,UITableViewDataSource,UITableViewDelegate>{
     NSString *profilename;
+    NSString *loginemail;
     NSString *username;
     NSMutableArray *tableData;
     IBOutlet UISearchBar *mySearchBar;

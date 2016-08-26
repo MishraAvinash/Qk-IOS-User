@@ -1,12 +1,67 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="15D21" minimumToolsVersion="Automatic">
-    <entity name="Profile" representedClassName="Profile" syncable="YES">
-        <attribute name="birthday" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <attribute name="displayname" optional="YES" attributeType="String" syncable="YES"/>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15G31" minimumToolsVersion="Automatic">
+    <entity name="Authorize" representedClassName="Authorize" syncable="YES">
+        <attribute name="access_token" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="client_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="client_secret" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="emailid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="grant_type" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="refresh_token" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="scope" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sync_flag" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="token_type" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userid" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="GenProfile" representedClassName="GenProfile" syncable="YES">
+        <attribute name="about_me" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="birthday" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="college" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="company_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="country" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="created_date" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="current_location" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="display_name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="phonenumber" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="engagement_date" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="facebook" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="first_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="gender" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="googleplus" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="high_school" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="home_phone" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="home_town" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="instagram" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="is_main_profile" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="job_title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="last_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="linkedin" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="marriage_date" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="mobile_phone" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="other_phone" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="personal_email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="phone_number" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="profile_type" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="qk_profile" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="qtag" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="school_date" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="snapchat" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sync_date" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sync_flag" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="twitter" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="website" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="work_email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="work_phone" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Login" representedClassName="Login" syncable="YES">
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sync_flag" optional="YES" attributeType="Boolean" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Profile" positionX="-63" positionY="-18" width="128" height="105"/>
+        <element name="Authorize" positionX="-54" positionY="81" width="128" height="225"/>
+        <element name="GenProfile" positionX="-45" positionY="90" width="128" height="615"/>
+        <element name="Login" positionX="-45" positionY="180" width="128" height="90"/>
     </elements>
 </model>
